@@ -33,7 +33,7 @@ ADD_EXECUTABLE(elzma ${SRCS})
 TARGET_LINK_LIBRARIES(elzma easylzma_s)
 
 # make a hard link (or copy on win32) from unelzma to elzma
-GET_TARGET_PROPERTY(binPath elzma LOCATION)
+GET_TARGET_PROPERTY(binPath $<TARGET_FILE> LOCATION)
 IF (WIN32)
   SET(exeExt ".exe") 
   SET(hardLinkCommand ${CMAKE_COMMAND} -E copy_if_different) 
